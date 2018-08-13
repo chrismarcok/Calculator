@@ -1,4 +1,4 @@
-package com.something.chris.newcalculator;
+package com.something.chris.calculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
