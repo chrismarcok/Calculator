@@ -1,8 +1,10 @@
-package com.example.chris.newcalculator;
+package com.something.chris.newcalculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,26 +13,26 @@ import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
     //region global vars
-    Button oneButton;
-    Button twoButton;
-    Button threeButton;
-    Button fourButton;
-    Button fiveButton;
-    Button sixButton;
-    Button sevenButton;
-    Button eightButton;
-    Button nineButton;
-    Button zeroButton;
-    Button decimalButton;
-    Button equalsButton;
-    Button plusButton;
-    Button minusButton;
-    Button multiplyButton;
-    Button divideButton;
-    Button backspaceButton;
-    Button allClearButton;
-    Button openParenButton;
-    Button closeParenButton;
+    CardView oneButton;
+    CardView twoButton;
+    CardView threeButton;
+    CardView fourButton;
+    CardView fiveButton;
+    CardView sixButton;
+    CardView sevenButton;
+    CardView eightButton;
+    CardView nineButton;
+    CardView zeroButton;
+    CardView decimalButton;
+    CardView equalsButton;
+    CardView plusButton;
+    CardView minusButton;
+    CardView multiplyButton;
+    CardView divideButton;
+    CardView backspaceButton;
+    CardView allClearButton;
+    CardView openParenButton;
+    CardView closeParenButton;
     TextView resultTextView;
     TextView inputTextView;
     //endregion
@@ -43,26 +45,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         //region findviewbyid
-        oneButton = (Button) findViewById(R.id.oneButton);
-        twoButton = (Button) findViewById(R.id.twoButton);
-        threeButton = (Button) findViewById(R.id.threeButton);
-        fourButton = (Button) findViewById(R.id.fourButton);
-        fiveButton = (Button) findViewById(R.id.fiveButton);
-        sixButton = (Button) findViewById(R.id.sixButton);
-        sevenButton = (Button) findViewById(R.id.sevenButton);
-        eightButton = (Button) findViewById(R.id.eightButton);
-        nineButton = (Button) findViewById(R.id.nineButton);
-        zeroButton = (Button) findViewById(R.id.zeroButton);
-        decimalButton = (Button) findViewById(R.id.decimalButton);
-        equalsButton = (Button) findViewById(R.id.equalsButton);
-        plusButton = (Button) findViewById(R.id.plusButton);
-        minusButton = (Button) findViewById(R.id.minusButton);
-        multiplyButton = (Button) findViewById(R.id.multiplyButton);
-        divideButton = (Button) findViewById(R.id.divideButton);
-        backspaceButton = (Button) findViewById(R.id.backspaceButton);
-        allClearButton = (Button) findViewById(R.id.allClearButton);
-        openParenButton = (Button) findViewById(R.id.openParenthesisButton);
-        closeParenButton = (Button) findViewById(R.id.closeParenthesisButton);
+        oneButton = (CardView) findViewById(R.id.oneButton);
+        twoButton = (CardView) findViewById(R.id.twoButton);
+        threeButton = (CardView) findViewById(R.id.threeButton);
+        fourButton = (CardView) findViewById(R.id.fourButton);
+        fiveButton = (CardView) findViewById(R.id.fiveButton);
+        sixButton = (CardView) findViewById(R.id.sixButton);
+        sevenButton = (CardView) findViewById(R.id.sevenButton);
+        eightButton = (CardView) findViewById(R.id.eightButton);
+        nineButton = (CardView) findViewById(R.id.nineButton);
+        zeroButton = (CardView) findViewById(R.id.zeroButton);
+        decimalButton = (CardView) findViewById(R.id.decimalButton);
+        equalsButton = (CardView) findViewById(R.id.equalsButton);
+        plusButton = (CardView) findViewById(R.id.plusButton);
+        minusButton = (CardView) findViewById(R.id.minusButton);
+        multiplyButton = (CardView) findViewById(R.id.multiplyButton);
+        divideButton = (CardView) findViewById(R.id.divideButton);
+        backspaceButton = (CardView) findViewById(R.id.backspaceButton);
+        allClearButton = (CardView) findViewById(R.id.allClearButton);
+        openParenButton = (CardView) findViewById(R.id.openParenthesisButton);
+        closeParenButton = (CardView) findViewById(R.id.closeParenthesisButton);
         resultTextView = (TextView) findViewById(R.id.resultTextView);
         inputTextView = (TextView) findViewById(R.id.inputTextView);
         //endregion
@@ -228,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
                     String postfix = infixToPostfix(res);
                     float result = evaluatePostfix(postfix);
                     resultTextView.setText(String.valueOf(result));
+                    resultTextView.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_in));
                     inputTextView.setText("");
                 } catch (Exception e) {
                     resultTextView.setText("error!");
